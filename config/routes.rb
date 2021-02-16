@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'top' => 'homes#top'
-  get 'about' => 'homes#about'
+  root :to => "homes#top"
+  get 'home/about' => 'homes#about'
 
   resources :customers, only: [:show, :edit, :update]
   get 'quit' => 'customers#quit'
