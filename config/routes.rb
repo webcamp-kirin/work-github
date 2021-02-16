@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users
   devise_for :admins
   devise_for :customers
-  
-  get 'top' => 'homes#top'
-  get 'about' => 'homes#about'
+
+  root :to => "homes#top"
+  get 'home/about' => 'homes#about'
 
   resources :customers, only: [:show, :edit, :update]
   get 'quit' => 'customers#quit'
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
   resources :cart_items, only: [:index, :create, :update, :destroy]
   delete 'destroy_all' => 'cart_items#destroy_all'
   resources :shippings, only: [:index, :create, :edit, :update, :destroy]
-  
+
   resources :admin_customers, only: [:index, :show, :edit, :update]
   resources :admin_items, only: [:index, :new, :create, :show, :edit, :update]
   resources :admin_orders, only: [:show, :index]
