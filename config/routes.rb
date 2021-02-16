@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :customers
   devise_for :users
-  devise_for :admins
-  devise_for :customers
+  
 
   root :to => "homes#top"
   get 'home/about' => 'homes#about'
