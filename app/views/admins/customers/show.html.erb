@@ -14,7 +14,7 @@
      <th>郵便番号</th><th><%= @customer.postal_code %></th>
     </tr>
     <tr>
-     <th>住所</th><th><%= @customer.addres %></th>
+     <th>住所</th><th><%= @customer.address %></th>
     </tr>
     <tr>
      <th>電話番号</th><th><%= @customer.phone_number %></th>
@@ -27,3 +27,6 @@
     </tr>
     </tbody>
 </table>
+
+<%= link_to "編集",edit_admins_customer_path(@customer) %>
+<%= link_to "注文履歴一覧を見る",admins_orders_path %>
