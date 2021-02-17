@@ -255,7 +255,9 @@ DEPENDENCIES
   kaminari
   listen (~> 3.0.5)
   puma (~> 3.0)
+
   rails (~> 5.2.4, >= 5.2.4.2)
+
   refile!
   refile-mini_magick
   sass-rails (~> 5.0)
