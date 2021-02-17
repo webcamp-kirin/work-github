@@ -1,2 +1,76 @@
-<h1>Shippings#indec</h1>
-<p>Find me in app/views/shippings/indec.html.erb</p>
+<div class="container">
+
+  <div class="row">
+    <div class="col">
+
+      <div class="　">
+        <h4 class="　">配送先登録/一覧</h4>
+      </div>
+
+      <%= form_with model: @address, url: shippings_path, local: true do |f| %>
+        <div class="row">
+          <div class="col">
+
+            
+
+            <div class="row">
+              <p class="col">郵便番号（ハイフンなし）</p>
+              <%= f.text_field :postal_code, placeholder:"0000000", class: "　" %>
+            </div>
+
+            <div class="row">
+              <p class="col">住所</p>
+              <%= f.text_field :address, placeholder:"東京都渋⾕区代々⽊神園町0-0", class: "　" %>
+            </div>
+
+            <div class="row">
+              <p class="col">宛名</p>
+              <%= f.text_field :name, placeholder:"令和道子", class: "" %>
+              <div class="col">
+                <%= f.submit "新規登録", class:"btn" %>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead class="">
+          <tr>
+            <th class="　">郵便番号</th>
+            <th>住所</th>
+            <th class="　">宛名</th>
+            <th colspan=""></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @addresses.each do |address| %>
+            <tr>
+              <td><%= shippings.postal_code %></td>
+              <td><%= shippings.address %></td>
+              <td><%= shippings.name %></td>
+              <td colspan="2">
+                <div class="row">
+                  <div class="col">
+                    <%= link_to "編集する", edit_shipping_path(address.id), class: "btn " %>
+                  </div>
+                  <div class="col">
+                    <%= link_to "削除する", shipping_path(address.id), method: :delete, class: "btn" %>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <h6 class=" "><%= paginate @addresses %></h6>
+    </div>
+  </div>
+
+</div>
