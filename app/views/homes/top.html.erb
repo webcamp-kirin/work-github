@@ -1,17 +1,20 @@
 <div class="container">
   <div class="row-md-8 top-introduction">
     <div class="col-md-8 offset-md-4">
+      <div class="text-white">
+      <br>
       ようこそ、ながのCAKEへ！<br>
       このサイトは、ケーキ販売のECサイトになります。<br>
       会員でない⽅も商品の閲覧はできますが、<br>
       購⼊には会員登録が必要になります。
+      </div>
     </div>
   </div>
   <div class="row">
     <h3 class="item-heading">新着商品</h3>
   </div>
   <div class="row">
-    <div class="col"></div>
+    <div class="col">
       <% @items.each do |item| %>
         <div id="new-item-box">
           <div class="item-image"><%= attachment_image_tag item, :item_image, :fill, 60, 60, fallback: "no_image.jpg"%></div>
@@ -19,6 +22,9 @@
           <div class="item-price"><%= item.price %></div>
         </div>
       <% end %>
+    </div>
+    <div class="row">
+      <u><%= link_to "すべての商品を見る>", items_path %></u>
     </div>
   </div>
 </div>
