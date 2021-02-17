@@ -1,10 +1,8 @@
 <div class="admin-customers">
 <h1>会員一覧</h1>
-<% @customers.each do |customer| %>
   <table class="admin">
       <thead>
        <tr>
-        <th></th>
         <th>会員ID</th>
         <th>氏名</th>
         <th>メールアドレス</th>
@@ -12,6 +10,7 @@
        </tr>
       </thead>
       <tbody>
+       <% @customers.each do |customer| %>
        <tr>
         <td><%= customer.id %></td>
         <td><%= link_to admins_customer_path(customer.id) do %>
@@ -22,9 +21,8 @@
         <td><%= customer.email %></td>
         <td><%= customer.is_deleted %></td>
        </tr>
+       <% end %>
       </tbody>
   </table>
-<% end %>
 </div>
 
-<%= paginate @customers %>

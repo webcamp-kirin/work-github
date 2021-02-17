@@ -57,3 +57,4 @@ gem "refile-mini_magick"
 
 gem 'kaminari'
 
+
