@@ -5,6 +5,6 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :orders, dependent: :destroy
-  has_many :shippings
+  has_many :shippings, dependent: :destroy
   # ここにカートとのリレーション（カート内商品を中間テーブルとする）
 end
