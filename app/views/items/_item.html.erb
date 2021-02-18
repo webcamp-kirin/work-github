@@ -1,0 +1,11 @@
+<div class="container">
+  <%= link_to item_path(item.id), class: "btn-link" do %>
+    <div id="image_field">
+      <%= attachment_image_tag(item, :image, size: "100x80", fallback: "no_image.jpg") %>
+    </div>
+    <p class="item-name">
+      <%= item.name %>
+    </p>
+  <% end %>
+  <p>¥<%= item.price %></p>
+</div>
