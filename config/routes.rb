@@ -18,9 +18,11 @@ Rails.application.routes.draw do
   delete 'destroy_all' => 'cart_items#destroy_all'
   resources :shippings, only: [:index, :create, :edit, :update, :destroy]
 
-  resources :admin_customers, only: [:index, :show, :edit, :update]
-  resources :admin_items, only: [:index, :new, :create, :show, :edit, :update]
-  resources :admin_orders, only: [:show, :index]
+  namespace :admins do
+  resources :customers, only: [:index, :show, :edit, :update]
+  resources :items, only: [:index, :new, :create, :show, :edit, :update]
+  resources :orders, only: [:show, :index]
   patch 'update' => 'admin_order_details#update'
-  resources :admin_genres, only: [:index, :create, :edit, :update]
+  resources :genres, only: [:index, :create, :edit, :update]
+  end
 end
