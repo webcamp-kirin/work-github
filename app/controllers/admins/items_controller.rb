@@ -12,10 +12,11 @@ class Admins::ItemsController < ApplicationController
     # @item.user_id = current_user.id
     # byebug
     @item.save
-    redirect_to admins_items_path
+    redirect_to admins_item_path
   end
 
   def show
+     @item = Item.find(params[:id])
   end
 
   def edit
