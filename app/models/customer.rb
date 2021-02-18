@@ -4,7 +4,7 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :orders, dependent: :destroy
-  has_many :shippings
-  # ここにカートとのリレーション（カート内商品を中間テーブルとする）
+  has_many :orders
+  has_many :shippings, dependent: :destroy
+  has_many :cart_items, dependent: :destroy
 end
