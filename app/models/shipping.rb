@@ -1,3 +1,3 @@
 class Shipping < ApplicationRecord
-  belongs_to :customers, dependent: :destroy
+  belongs_to :customer
 end
