@@ -12,16 +12,20 @@
 </thead>
 </div>
 <% @items.each do |item| %>
-<%= attachment_image_tag　item, :image %>
+
+
  <tr>
   <th><%= item.id %></th>
-  <th><%= item.name %> </th>
+  <th>
+  <%= link_to admins_item_path(item.id) do %>
+  <%= item.name %> 
+  <% end %>
+  </th>
   <th><%= item.price %></th>
   <th><%= item.genre_id %></th>
   <th><%= item.is_active %></th>
  </tr>
-<% end %>
-<% end %>
+ <% end %>
 
 
 
