@@ -3,26 +3,25 @@
   <table class="admin">
       <thead>
        <tr>
-        <th>会員ID</th>
-        <th>氏名</th>
-        <th>メールアドレス</th>
-        <th>ステータス</th>
+        <th>購入日時</th>
+        <th>購入者</th>
+        <th>注文個数</th>
+        <th>注文ステータス</th>
        </tr>
       </thead>
       <tbody>
-       <% @customers.each do |customer| %>
+       <% @orders.each do |order| %>
        <tr>
-        <td><%= customer.id %></td>
-        <td><%= link_to admins_customer_path(customer.id) do %>
-        <%= customer.last_name %>
-        <%= customer.first_name %>
-        <% end %>
+        <td><%=  %></td>
+        <td>
+        <%= @customer.last_name %>
+        <%= @customer.first_name %>
         </td>
-        <td><%= customer.email %></td>
-        <td><%= customer.is_deleted %></td>
+        <td><%=  %></td>
+        <td><%= order.order_status %></td>
        </tr>
        <% end %>
-       <%= paginate @customers %>
+       <%= paginate @oders %>
       </tbody>
   </table>
 </div>
