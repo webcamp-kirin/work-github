@@ -12,12 +12,12 @@
       <tbody>
        <% @orders.each do |order| %>
        <tr>
-        <td><%=  %></td>
+        <td></td>
         <td>
         <%= @customer.last_name %>
         <%= @customer.first_name %>
         </td>
-        <td><%=  %></td>
+        <td><%= order.count %></td>
         <td><%= order.order_status %></td>
        </tr>
        <% end %>

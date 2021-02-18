@@ -1,2 +1,51 @@
-<h1>Admins::Orders#show</h1>
-<p>Find me in app/views/admins/orders/show.html.erb</p>
+<h1>注文履歴詳細</h1>
+<table class="table">
+    <tbody>
+    <tr>
+     <th>購入者</th><th><%= @customer.created_at %></th>
+    </tr>
+    <tr>
+     <th>注文日</th><th><%= @order.last_name_kana %></th>
+    </tr>
+    <tr>
+     <th>配送先</th><th><%= @order.address %></th>
+     <th><%= @order.address_name %></th>
+    </tr>
+    <tr>
+     <th>支払い方法</th><th><%= @order.payment %></th>
+    </tr>
+    <tr>
+     <th>注文ステータス</th><th><%= @order.order_status %></th>
+    </tr>
+    <tr>
+     <th>メールアドレス</th><th><%= @customer.email %></th>
+    </tr>
+    <tr>
+     <th>会員ステータス</th><th><%= @customer.is_deleted %></th>
+    </tr>
+    </tbody>
+</table>
+
+<table class="items">
+    <thead>
+      <tr>
+        <th>商品名</th>
+        <th>単価(税込)</th>
+        <th>数量</th>
+        <th>小計</th>
+        <th>制作ステータス</th>
+       </tr>
+    </thead>
+    <tbody>
+      <% @order_details.each do |order_detail| %>
+      <tr>
+        <td><%= order_detail.item.name %></td>
+        <td>¥<%= order_detail.price %></td>
+        <td><%= order_detail.amount %></td>
+        <td></td>
+        <td><%= @item.is_active %></td>
+      </tr>
+      <% end %>
+    </tbody>
+</table>
+			           
