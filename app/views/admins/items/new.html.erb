@@ -1,3 +1,13 @@
+<% if @item.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h1>商品新規登録</h1>
 
 <%= form_with model:@item,url: admins_items_path, method: :post, local:true do |f| %>
@@ -38,7 +48,7 @@
     <tr>
   　 <th>ジャンル</th>
   　  <th></th>
-      <th><%= f.select :genre_id, [["ケーキ", "1"], ["焼き菓子", "2"], ["プリン", "3"]], include_blank: "選択して下さい" %></th>
+      <th><%= f.collection_select :genre_id, @genres, :id , :name  %></th>
     </tr>
   </thead>
 </table> 
@@ -49,7 +59,7 @@
     <tr>
   　  <th>税抜価格</th>
   　  <th></th>
-      <th><%= f.text_field :price %></th>
+      <th><%= f.text_field :price %>円</th>
     </tr>
   </thead>
 </table> 
@@ -73,5 +83,3 @@
 
  <% end %>
  
-
-  

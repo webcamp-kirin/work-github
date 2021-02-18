@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :customers, only: [:index, :show, :edit, :update]
   resources :items, only: [:index, :new, :create, :show, :edit, :update]
   resources :orders, only: [:show, :index]
-  patch 'update' => 'admin_order_details#update'
   resources :genres, only: [:index, :create, :edit, :update]
+  resources :order_details,only: [:update]
   end
 end

@@ -11,16 +11,12 @@
     </div>
   </div>
   <div class="row">
-    <h3 class="item-heading">新着商品</h3>
+    <h3 class="item-heading"><strong>新着商品</strong></h3>
   </div>
   <div class="row">
     <div class="col">
-      <% @items.each do |item| %>
-        <div id="new-item-box">
-          <div class="item-image"><%= attachment_image_tag item, :item_image, :fill, 60, 60, fallback: "no_image.jpg"%></div>
-          <div class="item-name"><%= item.name %></div>
-          <div class="item-price"><%= item.price %></div>
-        </div>
+      <% @items.first(4).each do |item| %>
+        <%= render "items/item", item: item %>
       <% end %>
     </div>
     <div class="row">
