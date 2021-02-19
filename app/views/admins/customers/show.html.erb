@@ -23,7 +23,13 @@
      <th>メールアドレス</th><th><%= @customer.email %></th>
     </tr>
     <tr>
-     <th>会員ステータス</th><th><%= @customer.is_deleted %></th>
+     <th>会員ステータス</th>
+     <th><% if @customer.is_deleted == true%>
+           <p><i class="fas fa-bullseye blue"></i>退会済</p>
+          <% else %>
+           <p><i class="fas fa-bullseye red"></i>有効</p>
+          <% end %>
+     </th>
     </tr>
     </tbody>
 </table>
