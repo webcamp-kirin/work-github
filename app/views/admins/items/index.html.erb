@@ -12,14 +12,20 @@
 </thead>
 </div>
 <% @items.each do |item| %>
+
+
  <tr>
   <th><%= item.id %></th>
-  <th><%= item.name %> </th>
+  <th>
+  <%= link_to admins_item_path(item.id) do %>
+  <%= item.name %> 
+  <% end %>
+  </th>
   <th><%= item.price %></th>
-  <th><%= item.genre %></th>
-  <th><%= item.active %></th>
+  <th><%= item.genre_id %></th>
+  <th><%= item.is_active %></th>
  </tr>
-<% end %>
+ <% end %>
 
 
 
