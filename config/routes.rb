@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   root :to => "homes#top"
   get 'home/about' => 'homes#about'
+  
 
   resources :customers, only: [:show, :edit, :update]
   get 'quit' => 'customers#quit'
