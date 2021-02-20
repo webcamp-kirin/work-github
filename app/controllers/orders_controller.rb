@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
   end
 
   def confirm
+    
   end
 
   def create

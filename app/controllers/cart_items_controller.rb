@@ -1,4 +1,6 @@
 class CartItemsController < ApplicationController
+  before_action :authenticate_customer!
+
   def index
     @cart_items = CartItem.all
   end
@@ -17,4 +19,7 @@ class CartItemsController < ApplicationController
 
   def destroy_all
   end
+
+  private
+
 end

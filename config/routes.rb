@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   patch 'out' => 'customers#out'
   resources :items, only: [:index, :show]
   resources :orders, only: [:new, :create, :show, :index]
-  post 'confirm' => 'orders#confirm'
+  get 'confirm' => 'orders#confirm'
   get 'thx' => 'orders#thx'
   resources :cart_items, only: [:index, :create, :update, :destroy]
   delete 'destroy_all' => 'cart_items#destroy_all'
