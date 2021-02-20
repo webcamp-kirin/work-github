@@ -1,5 +1,6 @@
-<h1><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h1>
-<table class="table">
+<div class="container">
+<h1 class="p-3 md-2 bg-light text-dark"><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h1>
+<table class="row">
     <tbody>
     <tr>
      <th>会員ID</th><th><%= @customer.id %></th>
@@ -24,15 +25,23 @@
     </tr>
     <tr>
      <th>会員ステータス</th>
-     <th><% if @customer.is_deleted == true%>
-           <p><i class="fas fa-bullseye blue"></i>退会済</p>
-          <% else %>
-           <p><i class="fas fa-bullseye red"></i>有効</p>
-          <% end %>
+     <th>
+       <% if @customer.is_deleted == true%>
+        <p class="text-secondary">退会</p>
+       <% else %>
+        <p class="text-success">有効</p>
+       <% end %>
      </th>
     </tr>
     </tbody>
 </table>
 
-<%= link_to "編集",edit_admins_customer_path(@customer) %>
-<%= link_to "注文履歴一覧を見る",admins_order_path(id: @customer.id) %>
+<button type="button" class="btn btn-success">
+<%= link_to "編集",edit_admins_customer_path(@customer),class:"Link" %>
+</button>
+
+<button type="button" class="btn btn-primary">
+<%= link_to "注文履歴一覧を見る",admins_order_path(id: @customer.id),class:"Link" %>
+</button>
+
+</div>
