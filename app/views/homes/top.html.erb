@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row-md-8 top-introduction">
     <div class="col-md-8 offset-md-4">
-      <div class="text-white">
+      <div class="top_text text-white">
       <br>
       ようこそ、ながのCAKEへ！<br>
       このサイトは、ケーキ販売のECサイトになります。<br>
@@ -13,14 +13,14 @@
   <div class="row">
     <h3 class="item-heading"><strong>新着商品</strong></h3>
   </div>
-  <div class="row">
-    <div class="col">
+  <div class="row justify-content-center">
+    <div class="top_item_box">
       <% @items.first(4).each do |item| %>
         <%= render "items/item", item: item %>
       <% end %>
     </div>
-    <div class="row">
-      <u><%= link_to "すべての商品を見る>", items_path %></u>
-    </div>
+  </div>
+  <div class="text-right">
+    <u><%= link_to "すべての商品を見る>", items_path %></u>
   </div>
 </div>

@@ -37,6 +37,7 @@ class OrdersController < ApplicationController
         @order_details.price = cart_item.item.price
         @order_details.amount = cart_item.amount
         @order_details.save
+        current_customer.cart_items.destroy_all
       end
     redirect_to thx_path
     # render :new and return if params[:back] || !@order.save
