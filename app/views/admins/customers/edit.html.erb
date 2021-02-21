@@ -24,9 +24,9 @@
      <th>メールアドレス</th><th><%= f.text_field :email %></th>
     </tr>
     <tr>
-     <th>会員ステータス</th><th><%= f.text_field :is_deleted %></th>
-     <%= f.submit '変更を保存' %>
+     <th>会員ステータス</th><th><%= f.select :is_deleted, Customer.is_deleteds.keys.to_a, include_blank: true %></th>
     </tr>
+    <th><%= f.submit '変更を保存' %></th>
     </tbody>
 </table>
 <% end %>
