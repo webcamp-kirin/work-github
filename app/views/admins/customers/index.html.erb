@@ -1,6 +1,6 @@
-<div class="admin-customers">
-<h1>会員一覧</h1>
-  <table class="admin">
+<div class="container">
+<h1 class="p-3 md-2 bg-light text-dark">会員一覧</h1>
+  <table class="table">
       <thead>
        <tr>
         <th>会員ID</th>
@@ -12,18 +12,18 @@
       <tbody>
        <% @customers.each do |customer| %>
        <tr>
-        <td><%= customer.id %></td>
-        <td><%= link_to admins_customer_path(customer.id) do %>
+        <td scope ="row"><%= customer.id %></td>
+        <td scope ="row"><%= link_to admins_customer_path(customer.id) do %>
         <%= customer.last_name %>
         <%= customer.first_name %>
         <% end %>
         </td>
-        <td><%= customer.email %></td>
-        <td>
+        <td scope ="row"><%= customer.email %></td>
+        <td scope ="row">
           <% if customer.is_deleted == true%>
-           <p><i class="fas fa-bullseye blue"></i>退会済</p>
+           <p class="text-secondary">退会</p>
           <% else %>
-           <p><i class="fas fa-bullseye red"></i>有効</p>
+           <p class="text-success">有効</p>
           <% end %>
         </td>
        </tr>
@@ -31,5 +31,11 @@
       </tbody>
   </table>
 </div>
-<div><%= paginate(@customers) %></div>
+
+
+<div class="text-center">
+ <ul class="pagination">
+  <%= paginate(@customers) %> 
+ </ul>
+</div>
 
