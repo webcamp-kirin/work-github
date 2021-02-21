@@ -2,10 +2,10 @@
 <table class="table">
     <tbody>
     <tr>
-     <th>購入者</th><th><%= @customer.created_at %></th>
+     <th>購入者</th><th><%= @customer.last_name %><%= @customer.first_name %></th>
     </tr>
     <tr>
-     <th>注文日</th><th><%= @order.last_name_kana %></th>
+     <th>注文日</th><th><%= @order.created_at %> %></th>
     </tr>
     <tr>
      <th>配送先</th><th><%= @order.address %></th>
