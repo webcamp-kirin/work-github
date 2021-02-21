@@ -15,8 +15,12 @@ Rails.application.routes.draw do
   get 'confirm' => 'orders#confirm'
   get 'thx' => 'orders#thx'
   resources :cart_items, only: [:index, :create, :update, :destroy]
-  delete 'destroy_all' => 'cart_items#destroy_all'
+  get 'destroy_all' => 'cart_items#destroy_all'
   resources :shippings, only: [:index, :create, :edit, :update, :destroy]
+  resources :carts
+  post '/add_item' => 'carts#add_item'
+  post '/update_item' => 'carts#update_item'
+  delete '/delete_item' => 'carts#delete_item'
 
   namespace :admins do
   resources :customers, only: [:index, :show, :edit, :update]

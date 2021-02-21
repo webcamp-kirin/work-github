@@ -5,6 +5,12 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :orders
+  has_many :carts, dependent: :destroy
   has_many :shippings, dependent: :destroy
   has_many :cart_items, dependent: :destroy
+  
+  enum is_deleted:{
+    有効: 0,
+    退会: 1
+  }
 end

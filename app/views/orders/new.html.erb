@@ -5,16 +5,16 @@
     </div>
   </div>
   <div class="row mt-5">
+    <%= form_with model:@order, url:confirm_path, method: :post, local: true  do |f| %>
     <div class="offset-2 col-5">
       <div class="row">
         <strong class="">支払い方法</strong>
       </div>
-      <%= form_tag(orders_path, method: :post) do %>
         <div class="form-check mt-3">
-          <%= radio_button_tag :payment, :クレジットカード %>
-          <%= label_tag :payment, "クレジットカード", {value: :"クレジットカード", style: "display: inline-block;"} %><br>
-          <%= radio_button_tag :payment, :銀行振込 %>
-          <%= label_tag :payment, "銀行振込", {value: :"銀行振込", style: "display: inline-block;"} %>
+          <%= f.radio_button :payment, :クレジットカード %>
+          <%= f.label :payment, "クレジットカード", {value: :"クレジットカード", style: "display: inline-block;"} %><br>
+          <%= f.radio_button :payment, :銀行振込 %>
+          <%= f.label :payment, "銀行振込", {value: :"銀行振込", style: "display: inline-block;"} %>
         </div>
         <div class="row mt-3">
           <strong class="">お届け先</strong>
@@ -31,6 +31,16 @@
         </div>
       <% end %>
     </div>
+          <%= f.radio_button :select, :my_address %>
+          <%= f.label :select, "ご自身の住所", {value: :my_address, style: "display: inline-block;"} %>
+          <%= address %><br>
+          <%= f.radio_button :select, :select_address %>
+        </div>
+        <div class="row mt-5">
+          <%= f.submit "確認画面へ進む", class: "btn btn-info ml-auto" %>
+        </div>
+    </div>
+    <% end %>
     <div class=" offset-1 col-3">
       <div class="row">
         <strong class="">新しいお届け先を登録する</strong>
