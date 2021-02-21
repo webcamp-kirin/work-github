@@ -22,6 +22,7 @@
       <%= f.label :order_address, "ご自身の住所" %>
       <%= current_customer.postal_code %>
       <%= current_customer.address %>
+      <%= current_customer.last_name + current_customer.first_name %>
       <br>
       <%= f.radio_button :address_option, 1 %>
       <%= f.label :order_address, "登録済住所から選択" %>
@@ -37,6 +38,10 @@
 
       <%= f.label :order_address, "住所" %>
       <%= f.text_field :order_address %>
+      <br>
+
+      <%= f.label :order_name, "宛名" %>
+      <%= f.text_field :order_name %>
       <br>
 
       <%= f.submit "確認画面へ進む" , class:"btn btn-primary" %>
