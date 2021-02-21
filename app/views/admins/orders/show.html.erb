@@ -9,14 +9,20 @@
     </tr>
     <tr>
      <th>配送先</th><th><%= @order.address %></th>
-     <th><%= @order.address_name %></th>
+    </tr>
+    <tr>
+     <th></th><th><%= @order.address_name %></th>
     </tr>
     <tr>
      <th>支払い方法</th><th><%= @order.payment %></th>
     </tr>
     <tr>
     <%= form_with(model:@order, url:admins_orders_path, method: :patch) do |f| %>
-     <th>注文ステータス</th><th><%= f.select :order_status, Order.order_statuses.keys.to_a, include_blank: true %></th>
+     <th>注文ステータス</th>
+     <th>
+         <%= f.select :order_status, Order.order_statuses.keys.to_a, include_blank: true %>
+         <%= f.submit '更新' %>
+     </th>
     <% end %>
     </tr>
     </tbody>
@@ -38,7 +44,8 @@
         <td><%= order_detail.item.name %></td>
         <td>¥<%= order_detail.price %></td>
         <td><%= order_detail.amount %></td>
-        <td></td>
+        <% total_payment = order_detail.price * order_detail.amount %>
+        <td>¥<%= total_payment.to_s(:delimited) %></td>
         <%= form_with(model:order_detail, url:admins_order_detail_path(order_detail), method: :patch) do |f| %>
             <td>
             <%= f.select :produciton_status, OrderDetail.produciton_statuses.keys.to_a, include_blank: true %>
@@ -48,5 +55,23 @@
       </tr>
       <% end %>
     </tbody>
-</table>
+ </table>
+ 
+ <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td class="bg-light">商品合計</td>
+        <td><%= @order_details.sum(:price).to_s(:delimited) %></td>
+      </tr>
+      <tr>
+        <td class="bg-light">配送料</td>
+        <td><%= @order.postage.to_s(:delimited) %></td>
+      </tr>
+      <tr>
+        <td class="bg-light">ご請求額</td>
+        <% amount_billed = @order.total_payment + @order.postage %>
+        <td><%= amount_billed.to_s(:delimited) %></td>
+      </tr>
+    </tbody>
+ </table>
 			           
