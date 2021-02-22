@@ -13,10 +13,13 @@ class CartItemsController < ApplicationController
   end
 
   def update
-    
+
   end
 
   def destroy
+    @cart_items = current_customer.cart_items.find(params[:id])
+    @cart_items.destroy
+    redirect_to cart_items_path
   end
 
   def destroy_all
