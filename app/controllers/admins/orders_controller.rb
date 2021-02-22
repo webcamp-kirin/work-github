@@ -8,15 +8,29 @@ class Admins::OrdersController < ApplicationController
      else
        @order = Order.all## order
      end
-    
   end
   
   def show
     # binding.pry
      @order = Order.find(params[:id])
-     @customer = Customer.find(params[:id])
+     @customer = @order.customer
      @items = Item.all
      @order_details = @order.order_details
+  end
+  
+  def update
+     @order = Order.find(params[:id])
+    if defined? order_params[:order_status]
+     @customer = @order.customer
+     @items = Item.all
+     @order_details = @order.order_details
+     
+     if @order.update(order_params)
+      redirect_to admins_order_path(@order)
+     else
+      render :show
+     end
+    end
   end
   
   private
@@ -28,5 +42,8 @@ class Admins::OrdersController < ApplicationController
   end
   def item_params
     params.require(:item).permit(:name, :description, :price, :genre_id, :image, :is_active, :created_at, :updated_at)
+  end
+  def order_detail_params
+     params.require(:order_detail).permit(:production_status)
   end
 end
