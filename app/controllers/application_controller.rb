@@ -8,12 +8,11 @@ class ApplicationController < ActionController::Base
   end
   
  def after_sign_in_path_for(resource)
-
-  case resource
-  when Admin
-    admins_orders_path
-  when Customer
-    root_path
+   
+  if resource_name == :admin
+     admins_orders_path
+  elsif resource_name == :customer
+     root_path
   end
  end
 end
