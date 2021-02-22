@@ -13,7 +13,10 @@ class CartItemsController < ApplicationController
   end
 
   def update
-
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.amount = params[:cart_item][:id]
+    @cart_item.update(cart_item_params)
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
@@ -32,7 +35,5 @@ class CartItemsController < ApplicationController
   def cart_item_params
     params.require(:cart_item).permit(:amount, :item_id)
   end
-
-  private
 
 end
