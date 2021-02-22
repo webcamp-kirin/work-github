@@ -15,12 +15,12 @@ class OrdersController < ApplicationController
     @sta = params[:order][:order_address].to_i
     @order_address = Address.find(@sta)
     @order.postal_code = @order_address.postal_code
-    @order.order_address = @order_address.address
+    @order.address = @order_address.address
     @order.address_name = @order_address.name
 
     elsif params[:order][:address_option] == "2"
     @order.postal_code = params[:order][:postal_code]
-    @order.order_address = params[:order][:order_address]
+    @order.address = params[:order][:order_address]
     @order.address_name = params[:order][:address_name]
     end
     # render :new if @order.invalid?
