@@ -1,4 +1,5 @@
 class Admins::OrderDetailsController < ApplicationController
+
 #   binding.pry
   def update
 #   binding.pry
