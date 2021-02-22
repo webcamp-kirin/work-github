@@ -5,7 +5,7 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field　form-group col-xs-12">
+    <div class="field form-group col-xs-12">
       <%= f.label :"名前", class: "col-sm-2 control-label" %>
       <%= f.label :"(姓)", class: "col-sm-1 control-label" %>
       <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "col-sm-3 form-control-static name", placeholder: "令和" %>
@@ -23,7 +23,7 @@
 
     <div class="field form-group col-xs-9">
       <%= f.label :"メールアドレス", class: "col-sm-3 control-label" %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-3 form-control-static", placeholder:"sample@expamle.com" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-3 form-control-static", placeholder:"sample@example.com" %>
     </div>
 
     <div class="field form-group col-xs-9">
@@ -36,25 +36,25 @@
       <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "col-sm-6 form-control-static", placeholder:"東京都渋谷区代々木神園町0-0" %>
     </div>
 
-    <div class="field">
+    <div class="field form-group col-xs-9">
       <%= f.label :"電話番号（ハイフンなし）", class: "col-sm-3 control-label" %>
       <%= f.phone_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "col-sm-3 form-control-static", placeholder:"00000000000" %>
     </div>
 
-    <div class="field　form-group col-xs-9">
+    <div class="field form-group col-xs-9">
       <%= f.label :"パスワード(6文字以上)", class: "col-sm-3 control-label" %>
       <%= f.password_field :password, autocomplete: "new-password", class: "col-sm-3 form-control-static" %>
     </div>
 
-    <div class="field　form-group col-xs-9">
+    <div class="field form-group col-xs-9">
       <%= f.label :"パスワード(確認用)", class: "col-sm-3 control-label" %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-sm-3 form-control-static" %>
     </div>
-    <br>
+
     <div class="actions">
       <%= f.submit "新規登録", class: "btn btn-success offset-sm-3 col-sm-2" %>
     </div>
   <% end %>
-    <br>
+
   <%= render "devise/shared/links" %>
 </div>
