@@ -1,19 +1,20 @@
 class Admins::OrderDetailsController < ApplicationController
+#   binding.pry
   def update
-     @order = Order.find(params[:id])
-     @customer = Customer.find(params[:id])
-     @items = Item.all
-     @order_details = @order.order_details
+#   binding.pry
+     @order_detail = OrderDetail.find(params[:id])
      
-    if @order_details.update(order_detail_params)
-     redirect_to admins_order_path(@order)
+     
+    if @order_detail.update(production_status: params[:order_detail][:production_status])
+     redirect_to admins_order_path(@order_detail)
     else
      render :'order/show'
     end
   end
   
+  
   private
     def order_detail_params
-     params.require(:order_detail).permit(:is_active)
+     params.require(:order_detail).permit(:production_status)
     end
 end
