@@ -1,5 +1,7 @@
-<h1>商品一覧</h1>
-
+<div class="col-md-8 offset-md-2">
+<h4 class="px-2 pt-2">商品一覧</h>
+</div>
+<div class="col-md-8 offset-md-2">
 <table class='table'>
  <thead>
  <tr>  
@@ -25,13 +27,13 @@
   <th><%= item.genre.name %></th>
   <th>
       <% if item.is_active == true %>
-       販売中　
+       <font color="green">販売中　
       <% else %>
-       販売中止
+       <font color="gray">販売中止
       <% end %>
   </th>
-      
  </tr>
+</div>
  <% end %>
 
 

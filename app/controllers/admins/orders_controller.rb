@@ -10,8 +10,9 @@ class Admins::OrdersController < ApplicationController
      end
     
   end
-
+  
   def show
+    # binding.pry
      @order = Order.find(params[:id])
      @customer = Customer.find(params[:id])
      @items = Item.all
