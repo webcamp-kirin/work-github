@@ -1,19 +1,21 @@
 class OrdersController < ApplicationController
   def new
     @order = Order.new
+    @shipping_address = Shipping.where(customer: current_customer)
   end
 
   def confirm
     @order = Order.new(order_params)
     @cart_items = current_customer.cart_items
     @order.payment = params[:order][:payment]
+
     if params[:order][:address_option] == "0"
     @order.postal_code = current_customer.postal_code
     @order.address = current_customer.address
     @order.address_name = current_customer.last_name + current_customer.first_name
+
     elsif params[:order][:address_option] == "1"
-    @sta = params[:order][:order_address].to_i
-    @order_address = Address.find(@sta)
+    @order_address = Shipping.find(params[:order][:shipping_id])
     @order.postal_code = @order_address.postal_code
     @order.address = @order_address.address
     @order.address_name = @order_address.name
@@ -51,7 +53,7 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_items = @order.order_details
-    @order.total_price = @order.total_payment - @order.postage
+    @order.total_payment = @order.total_payment - @order.postage
   end
 
   def thx
@@ -61,4 +63,5 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:address, :payment, :postal_code, :address_name, :total_payment, :postage)
   end
+
 end

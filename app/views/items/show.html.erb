@@ -12,7 +12,7 @@
           <%= @item.description %>
         </div>
         <div class="field item-price">
-          <h3>¥ <%= @item.price %>
+          <h3>¥ <%= (@item.price * 1.1).floor %>
               <span><small>(税込)</small></span>
           </h3>
         </div>

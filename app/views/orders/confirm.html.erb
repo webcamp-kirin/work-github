@@ -1,12 +1,12 @@
 <div class="container my-5">
   <div class="row">
-    <div class="offset-1">
-      <h2 class=""><mark>注文情報確認</mark></h2>
+    <div class="mt-4 mb-4 bg-light d-inline-block">
+      <h4 class="px-2 pt-2">注文情報確認</h4>
     </div>
   </div>
-  <div class="row mt-3">
-    <div class="offset-1 col-7">
-      <table class="table table-sm ">
+  <div class="row">
+    <div class="col-9">
+      <table class="table table-hover table-inverse table-bordered">
         <thead>
           <tr class="">
             <th>商品名</th>
@@ -33,8 +33,8 @@
         </tbody>
       </table>
     </div>
-    <div class="col-2 d-flex">
-      <table class="table table-sm align-self-end">
+    <div class="col-3 d-flex">
+      <table class="table table-sm table-bordered align-self-end">
         <tbody>
           <tr class="">
             <td>送料</td>
@@ -55,12 +55,12 @@
   <div class="row mt-5">
     <div class="offset-2 col-6">
       <div class="row mt-3">
-        <strong class="">支払い方法</strong>
+        <strong class="">　支払い方法　</strong>
         <span class=""><%= @order.payment %></span>
       </div>
       <div class="row mt-3">
         <strong class="">　お届け先　</strong>
-        <span class=""><%= @order.address %></span>
+        <span class="">〒 <%= @order.postal_code %>  <%= @order.address %>  <%= @order.address_name %></span>
       </div>
     </div>
       <div class="col-3">
