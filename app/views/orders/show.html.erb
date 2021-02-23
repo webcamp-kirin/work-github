@@ -78,10 +78,10 @@
             <% @order_items.each do |order_item| %>
               <tr>
                 <td><%= order_item.item.name %></td>
-                <td><%= order_item.price %></td>
+                <td><%= (order_item.price * 1.1).floor %></td>
                 <td><%= order_item.amount %></td>
                 <% total_payment = order_item.price * order_item.amount %>
-                <td><%= total_payment.to_s(:delimited) %></td>
+                <td><%= ((total_payment * 1.1).floor).to_s(:delimited) %></td>
               </tr>
             <% end %>
           </tbody>
