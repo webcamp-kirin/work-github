@@ -1,5 +1,5 @@
 <div class="col-md-2 offset-md-2">
-<h4 class="px-2 pt-2">商品詳細</h>
+ <h1 class="p-3 md-2 bg-light text-dark">商品詳細</h1>
 </div>
 <div class="row">
     <div class="col-md-2 offset-md-2">
@@ -35,8 +35,8 @@
   </div>
   
   <div class="form-group row">
-    <p class="col-md-3 pt-1 mb-0">税抜価格　　　（税込価格）</p>
-    <%= @item.price %>（<%= (@item.price*1.1).to_i %>)円</div>
+    <p class="col-md-3 pt-1 mb-0">税込価格　　　（税抜価格）</p>
+    <%= (@item.price*1.1).to_i %>   (<%= @item.price %>) 円</div>
   
   <div class="form-group row">
     <p class="col-md-3 pt-1 mb-0">販売ステータス</p>

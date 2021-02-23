@@ -1,7 +1,18 @@
-<div class="col-md-8 offset-md-2">
-<h4 class="px-3 pt-3">ジャンル編集</h4>
+<% if @genre.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @genre.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="row">
+<div class="col-md-5 offset-md-3">
+ <h1 class="p-3 md-2 bg-light text-dark">ジャンル編集</h1>
 </div>
-<div class="col-md-8 offset-md-2">
+</div>
+<div class="col-md-5 offset-md-3">
 <%= form_with model:@genre,url: admins_genre_path(@genre), method: :patch, local:true do |f| %>
  <thead>
   <tr>  

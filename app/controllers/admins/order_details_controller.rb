@@ -1,5 +1,9 @@
 class Admins::OrderDetailsController < ApplicationController
+  before_action :authenticate_admin!
+
+
 #   binding.pry
+
   def update
 #   binding.pry
      @order_detail = OrderDetail.find(params[:id])
