@@ -53,7 +53,10 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_items = @order.order_details
-    @order.total_payment = @order.total_payment - @order.postage
+
+    @order.total_price = @order.total_payment - @order.postage
+    @order.payment
+
   end
 
   def thx
