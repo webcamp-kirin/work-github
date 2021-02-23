@@ -2,15 +2,15 @@ class Admins::OrderDetailsController < ApplicationController
   before_action :authenticate_admin!
 
 
-#   binding.pry
+
 
   def update
-#   binding.pry
-     @order_detail = OrderDetail.find(params[:id])
+     @order_detail = OrderDetail.find(params[:order_detail][:order_detail_id])
      
-     
-    if @order_detail.update(production_status: params[:order_detail][:production_status])
-     redirect_to admins_order_path(@order_detail)
+    if @order_detail.update(production_status: order_detail_params[:production_status])
+    p @order_detail
+  
+     redirect_to admins_order_path(params[:id])
     else
      render :'order/show'
     end

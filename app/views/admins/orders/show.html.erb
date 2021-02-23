@@ -1,5 +1,6 @@
-<h1>注文履歴詳細</h1>
-<table class="table">
+<div class ="container">
+<h1 class="p-3 md-2 bg-light text-dark">注文履歴詳細</h1>
+<table class="row">
     <tbody>
     <tr>
      <th>購入者</th>
@@ -10,7 +11,7 @@
      </th>
     </tr>
     <tr>
-     <th>注文日</th><th><%= @order.created_at %> %></th>
+     <th>注文日</th><th><%= @order.created_at %></th>
     </tr>
     <tr>
      <th>配送先</th><th><%= @order.address %></th>
@@ -33,7 +34,9 @@
     </tbody>
 </table>
 
-<table class="items">
+<div class='row'>
+<div class='col-8'>
+<table class="table">
     <thead>
       <tr>
         <th>商品名</th>
@@ -44,15 +47,15 @@
        </tr>
     </thead>
     <tbody>
-      <% @order_details.each do |order_detail| %>
+      <% @order.order_details.each do |order_detail| %>
       <tr>
-        <td><%= order_detail.item.name %></td>
-        <td>¥<%= (order_detail.price * 1.1).floor %></td>
-        <td><%= order_detail.amount %></td>
+        <td scope="row"><%= order_detail.item.name %></td>
+        <td scope="row">¥<%= (order_detail.price * 1.1).floor %></td>
+        <td scope="row"><%= order_detail.amount %></td>
         <% total_payment = (order_detail.price * 1.1).floor * order_detail.amount %>
-        <td>¥<%= total_payment.to_s(:delimited) %></td>
+        <td scope="row">¥<%= total_payment.to_s(:delimited) %></td>
         <%= form_with model: order_detail, url: admins_order_detail_path, method: :patch, local: true do |f| %>
-            <td>
+            <td scope="row">
             <%= f.hidden_field :order_detail_id, :value => order_detail.id %>
             <%= f.select :production_status, OrderDetail.production_statuses.keys.to_a, include_blank: true %>
     		<%= f.submit '更新' %>
@@ -62,27 +65,32 @@
       <% end %>
     </tbody>
  </table>
+ </div>
  
+ <div class="col-4">
  <table class="table table-bordered">
     <tbody>
       <tr>
         <td class="bg-light">商品合計</td>
         
         <% @sum = 0 %>
-　　　　<% @order_details.each do |order_detail| %>
+　　　　<% @order.order_details.each do |order_detail| %>
         <% total_payment = (order_detail.price * 1.1) * order_detail.amount %>
         <% @sum += total_payment %>
         <% end %>
-        <td><%= @sum %></td>
+        <td>¥<%= @sum %></td>
       </tr>
       <tr>
         <td class="bg-light">配送料</td>
-        <td><%= @order.postage.to_s(:delimited) %></td>
+        <td>¥<%= @order.postage.to_s(:delimited) %></td>
       </tr>
       <tr>
         <td class="bg-light">ご請求額</td>
-        <td><%= @order.total_payment.to_s(:delimited) %></td>
+        <td>¥<%= @order.total_payment.to_s(:delimited) %></td>
       </tr>
     </tbody>
  </table>
+ </div>
+ </div>
+ </div>
 			           

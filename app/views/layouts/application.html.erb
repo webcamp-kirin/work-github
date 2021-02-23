@@ -21,14 +21,16 @@
               <li class="nav-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-white' %></li>
               
             <% elsif admin_signed_in? %>
-          　  <li><%= link_to "商品一覧", admins_items_path %></li>
-          　  <li><%= link_to "会員一覧", admins_customers_path %></li>
-          　  <li><%= link_to "注文履歴一覧", admins_orders_path %></li>
-             <li><%= link_to "ジャンル一覧", admins_genres_path %></li>
-             <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+          　  <li clss="nav-item"><%= link_to "商品一覧", admins_items_path %></li>
+          　  <li class"nav-item"><%= link_to "会員一覧", admins_customers_path %></li>
+          　  <li class="nav-item"><%= link_to "注文履歴一覧", admins_orders_path %></li>
+             <li class="nav-item"><%= link_to "ジャンル一覧", admins_genres_path %></li>
+             <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
              
+             <li class="nav-item">
                 <%= text_field_tag :search %>
                 <%= submit_tag 'Search', :name => nil %>
+             </li>
            
 
               
