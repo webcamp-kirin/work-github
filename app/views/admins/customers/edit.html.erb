@@ -1,5 +1,6 @@
-<h1><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h1>
-<%= form_with(model:@customer, url:admins_customer_path, local: true,method: :patch) do |f| %>
+<div class="container">
+<h1 class="p-3 md-2 bg-light text-dark"><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h1>
+<%= form_with(model:@customer, url:admins_customer_path(@customer), local: true,method: :patch) do |f| %>
 <table class="table">
     <tbody>
     <tr>
@@ -15,7 +16,7 @@
      <th>郵便番号</th><th><%= f.text_field :postal_code %></th>
     </tr>
     <tr>
-     <th>住所</th><th><%= f.text_field :addres %></th>
+     <th>住所</th><th><%= f.text_field :address %></th>
     </tr>
     <tr>
      <th>電話番号</th><th><%= f.text_field :phone_number %></th>
@@ -24,9 +25,21 @@
      <th>メールアドレス</th><th><%= f.text_field :email %></th>
     </tr>
     <tr>
-     <th>会員ステータス</th><th><%= f.select :is_deleted, Customer.is_deleteds.keys.to_a, include_blank: true %></th>
+     <th>会員ステータス</th>
+     <th>
+      <%= f.label :"会員ステータス" %>
+       <%= f.radio_button :is_deleted, true %>
+       <%= f.label :is_deleted,"退会済" %>
+       <%= f.radio_button :is_deleted, false %>
+       <%= f.label :is_deleted, "有効" %>
+     </th>
     </tr>
-    <th><%= f.submit '変更を保存' %></th>
+    <tr>
+     <th>
+         <%= f.submit '変更を保存' %>
+     </th>
+    </tr>
     </tbody>
 </table>
 <% end %>
+</div>

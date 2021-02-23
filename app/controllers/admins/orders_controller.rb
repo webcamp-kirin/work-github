@@ -13,11 +13,9 @@ class Admins::OrdersController < ApplicationController
   end
   
   def show
-    # binding.pry
      @order = Order.find(params[:id])
      @customer = @order.customer
      @items = Item.all
-     @order_details = @order.order_details
   end
   
   def update
