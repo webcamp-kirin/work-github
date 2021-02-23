@@ -1,5 +1,7 @@
-<h2>管理者ログイン</h2>
-
+<div class="container">
+  <div class="mt-4 mb-4 bg-light d-inline-block">
+ <h4 class="px-2 pt-2">管理者ログイン</h4>
+</div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :メールアドレス %><br />
@@ -12,6 +14,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン", class: "btn btn-primary"  %>
   </div>
 <% end %>
