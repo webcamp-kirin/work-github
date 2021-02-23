@@ -54,8 +54,8 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order_items = @order.order_details
 
-    @order.total_price = @order.total_payment - @order.postage
-    @order.payment
+    @subtotal = @order.total_payment - @order.postage
+    # @order.payment
 
   end
 
