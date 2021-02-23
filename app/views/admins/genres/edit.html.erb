@@ -7,10 +7,12 @@
     </ul>
   </div>
 <% end %>
-<div class="col-md-8 offset-md-2">
+<div class="row">
+<div class="col-md-5 offset-md-3">
  <h1 class="p-3 md-2 bg-light text-dark">ジャンル編集</h1>
 </div>
-<div class="col-md-8 offset-md-2">
+</div>
+<div class="col-md-5 offset-md-3">
 <%= form_with model:@genre,url: admins_genre_path(@genre), method: :patch, local:true do |f| %>
  <thead>
   <tr>  
