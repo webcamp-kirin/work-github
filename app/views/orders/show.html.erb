@@ -29,11 +29,7 @@
               </tr>
               <tr>
                 <td class="bg-light">支払方法</td>
-                <% if @order.payment == "credit" %>
-                  <td>クレジットカード</td>
-                <% elsif @order.payment == "bank" %>
-                  <td>銀行振込</td>
-                <% end %>
+                <td><% @order.payment %></td>
               </tr>
               <tr>
                 <td class="bg-light">ステータス</td>
@@ -78,7 +74,7 @@
             <% @order_items.each do |order_item| %>
               <tr>
                 <td><%= order_item.item.name %></td>
-                <td><%= order_item.price %></td>
+                <td><%= order_item.price*1.1 %></td>
                 <td><%= order_item.amount %></td>
                 <% total_payment = order_item.price * order_item.amount %>
                 <td><%= total_payment.to_s(:delimited) %></td>
