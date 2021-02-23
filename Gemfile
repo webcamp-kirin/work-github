@@ -57,3 +57,5 @@ gem "refile-mini_magick"
 
 gem 'kaminari'
 gem 'pry-byebug', group: :development
+
+gem 'font-awesome-sass'
