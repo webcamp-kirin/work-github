@@ -29,29 +29,3 @@ Rails 5.2.4.4
 ・商品購入
 
 商品一覧 ジャンル別商品一覧 カート機能 支払方法・配送先の選択
-
-
-
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
