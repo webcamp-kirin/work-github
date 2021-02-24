@@ -6,7 +6,7 @@
     <%= link_to "カートを空にする", destroy_all_path, class: "btn btn-danger" %>
   </div>
   <table class="table table-hover table-bordered">
-    <thead>
+    <thead class="bg-light">
       <tr align="left">
         <th>商品名</th>
         <th>単価（税込）</th>
@@ -44,7 +44,7 @@
       <table class="table table-bordered text-left">
         <thead>
           <tr>
-            <td class="total_label"><strong>合計金額</strong></td>
+            <td class="bg-light total_label"><strong>合計金額</strong></td>
             <td class="total_amount"><%= @sum %></td>
           </tr>
         </thead>
