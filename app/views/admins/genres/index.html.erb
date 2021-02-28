@@ -7,44 +7,42 @@
     </ul>
   </div>
 <% end %>
+
 <div class="col-md-5 offset-md-2">
- <h1 class="p-3 md-2 bg-light text-dark">ジャンル一覧・追加</h1>
+  <h1 class="p-3 md-2 bg-light text-dark">ジャンル一覧・追加</h1>
 </div>
+
 <div class="col-md-8 offset-md-2">
-    
-    
-<%= form_with model:@genre,url: admins_genres_path, method: :post, local:true do |f| %>
- <div class="form-group row">
-   <p class="col-md-3 pt-1 mb-0">ジャンル名</p>
-   <p><%= f.text_field :name %></p>
-   <p><%= f.submit '新規登録', class: "btn btn-success" %></p>
- </div>
+  <%= form_with model:@genre, url:admins_genres_path, method: :post, local:true do |f| %>
+    <div class="form-group row">
+      <p class="col-md-3 pt-1 mb-0">ジャンル名</p>
+      <p><%= f.text_field :name %></p>
+      <p><%= f.submit '新規登録', class: "btn btn-success" %></p>
+    </div>
 
+    <table class='table'>
+      <thead class="bg-light">
+        <tr>
+          <th>ジャンル</th>
+        </tr>
+      </thead>
+    </table>
+  <% end %>
 
-<table class='table'>
- <thead>
-  <tr>  
-   <th>ジャンル</th>
-  </tr>
- </thead>
-</table> 
+  <% @genres.each do |genre| %>
+    <div class="col-md-5 offset-md-1">
+      <div class="form-group">
+        <div class="form-group row">
+          <p class="col-md-9 pt-1 mb-0"><%= genre.name %></p>
+          <%= link_to "編集する",  edit_admins_genre_path(genre), class: "btn btn-success" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
-<% @genres.each do |genre| %>
-
-<div class="col-md-5 offset-md-1">
-  <div class="form-group"> 
-  <div class="form-group row">
-   <p class="col-md-9 pt-1 mb-0"><%= genre.name %></p>
-   <p><%=link_to  edit_admins_genre_path(genre) do %>
-   <%= f.submit '編集する', class: "btn btn-success" %></p>
-   <% end %>
- </div>
-</div>
-</div>
-<% end %>
-<% end %>
-<div class="text-center">
- <ul class="pagination">
-  <%= paginate(@genres) %> 
- </ul>
+  <div class="text-center">
+    <ul class="pagination">
+      <%= paginate(@genres) %>
+    </ul>
+  </div>
 </div>
